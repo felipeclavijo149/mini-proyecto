@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de videojuegos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="barra-superior">
+        <div>
+            <p class="etiqueta">CATÁLOGO GAMER</p>
+            <h1>Registro de videojuegos</h1>
+        </div>
+        <div class="sesion">
+            <span>Sesión de <strong id="bienvenida"></strong></span>
+            <button id="cerrarSesion" class="boton-secundario" type="button">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <main class="contenido">
+        <section class="tarjeta">
+            <div class="encabezado-seccion">
+                <p class="etiqueta">NUEVO REGISTRO</p>
+                <h2>Información del juego</h2>
+                <p>Completa todos los campos para agregar un videojuego al catálogo.</p>
+            </div>
+
+            <form id="formJuego">
+                <div class="rejilla-formulario">
+                    <div class="campo">
+                        <label for="titulo">Título del juego</label>
+                        <input type="text" id="titulo" name="Título" required maxlength="100" placeholder="Ej. Aventura estelar">
+                    </div>
+                    <div class="campo">
+                        <label for="genero">Género</label>
+                        <select id="genero" name="Género" required>
+                            <option value="">Selecciona un género</option>
+                            <option>Acción</option>
+                            <option>Aventura</option>
+                            <option>Deportes</option>
+                            <option>Estrategia</option>
+                            <option>RPG</option>
+                            <option>Simulación</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="plataforma">Plataforma</label>
+                        <select id="plataforma" name="Plataforma" required>
+                            <option value="">Selecciona una plataforma</option>
+                            <option>PC</option>
+                            <option>PlayStation 5</option>
+                            <option>PlayStation 4</option>
+                            <option>Xbox Series X|S</option>
+                            <option>Xbox One</option>
+                            <option>Nintendo Switch</option>
+                            <option>Móvil</option>
+                            <option>Otra</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="desarrollador">Desarrollador</label>
+                        <input type="text" id="desarrollador" name="Desarrollador" required maxlength="100" placeholder="Nombre del estudio">
+                    </div>
+                    <div class="campo">
+                        <label for="distribuidora">Distribuidora</label>
+                        <input type="text" id="distribuidora" name="Distribuidora" required maxlength="100" placeholder="Nombre de la distribuidora">
+                    </div>
+                    <div class="campo">
+                        <label for="fechaLanzamiento">Fecha de lanzamiento</label>
+                        <input type="date" id="fechaLanzamiento" name="Fecha de lanzamiento" required>
+                    </div>
+                    <div class="campo">
+                        <label for="clasificacion">Clasificación por edad</label>
+                        <select id="clasificacion" name="Clasificación por edad" required>
+                            <option value="">Selecciona una clasificación</option>
+                            <option value="E">E — Para todos</option>
+                            <option value="E10+">E10+ — Mayores de 10 años</option>
+                            <option value="T">T — Adolescentes</option>
+                            <option value="M">M — Adultos</option>
+                            <option value="RP">RP — Pendiente</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="modo">Modo de juego</label>
+                        <select id="modo" name="Modo de juego" required>
+                            <option value="">Selecciona un modo</option>
+                            <option>Un jugador</option>
+                            <option>Multijugador</option>
+                            <option>Un jugador y multijugador</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="jugadores">Máximo de jugadores</label>
+                        <input type="number" id="jugadores" name="Máximo de jugadores" required min="1" max="1000" placeholder="Ej. 4">
+                    </div>
+                    <div class="campo">
+                        <label for="idioma">Idioma principal</label>
+                        <input type="text" id="idioma" name="Idioma principal" required maxlength="50" placeholder="Ej. Español">
+                    </div>
+                    <div class="campo">
+                        <label for="precio">Precio (USD)</label>
+                        <input type="number" id="precio" name="Precio (USD)" required min="0" step="0.01" placeholder="Ej. 59.99">
+                    </div>
+                    <div class="campo">
+                        <label for="duracion">Duración estimada (horas)</label>
+                        <input type="number" id="duracion" name="Duración estimada (horas)" required min="1" step="1" placeholder="Ej. 20">
+                    </div>
+                    <div class="campo">
+                        <label for="tamano">Tamaño de descarga (GB)</label>
+                        <input type="number" id="tamano" name="Tamaño de descarga (GB)" required min="0.1" step="0.1" placeholder="Ej. 35.5">
+                    </div>
+                    <div class="campo">
+                        <label for="formato">Formato</label>
+                        <select id="formato" name="Formato" required>
+                            <option value="">Selecciona un formato</option>
+                            <option>Digital</option>
+                            <option>Físico</option>
+                            <option>Digital y físico</option>
+                        </select>
+                    </div>
+                    <div class="campo campo-completo">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="Descripción" required maxlength="1000" rows="4" placeholder="Describe brevemente el juego"></textarea>
+                    </div>
+                </div>
+
+                <p id="mensajeFormulario" class="mensaje-formulario" role="status" aria-live="polite"></p>
+                <div class="acciones-formulario">
+                    <button id="botonGuardar" class="boton-principal" type="submit">Guardar videojuego</button>
+                    <button id="cancelarEdicion" class="boton-secundario" type="button" hidden>Cancelar edición</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tarjeta tarjeta-listado">
+            <div class="encabezado-seccion">
+                <p class="etiqueta">CATÁLOGO</p>
+                <h2>Juegos registrados</h2>
+            </div>
+            <div id="listaJuegos" class="lista-juegos" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <script src="js/inicio.js"></script>
+</body>
+</html>
